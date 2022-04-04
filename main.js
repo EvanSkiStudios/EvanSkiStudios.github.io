@@ -12,11 +12,15 @@ function setup() {
 
   sound = createAudio('assets/honk.mp3');
 
+  BAD_button_x = random(400);
+  BAD_button_y = random(400);
+  
   button_x = random(400);
   button_y = random(400);
   button_text = 'Click dis button';
   button = createButton(button_text);
 
+  BAD_button = false;
   text_color = color('black');
 }
 
@@ -34,12 +38,17 @@ function move_button(){
   //plays a sound, moves button, updates missed counter
 
   sound.play();
+  
+  BAD_button_x = button_x;
+  BAD_button_y = button_y;
+  
   button_x = random(400);
   button_y = random(400);
 
   missed += 1;
   let text_string = ['You have missed ', missed.toString(), ' times'];
   
+  //progression
   switch(missed){
     case 10:{
       text_color = color('red');
@@ -75,13 +84,34 @@ function move_button(){
       button_text = 'Click this button!';
       
       button = recreate_button(button, button_text);
+       
+      BAD_button_text = 'DON\'T Click this button!';
+      BAD_button = createButton(BAD_button_text); 
+       
     }break;
   }
 }
 
 function execute_button(){
-  //if you manage to click the button, rickroll
+  //if you manage to click the button, play reward video
   window.location.replace("https://youtu.be/YxjY_YTksKM?t=14");
+}
+
+function execute_BAD_button(){
+  
+  BAD_button.remove();
+  
+  missed = 0;
+  
+  BAD_button_x = random(400);
+  BAD_button_y = random(400);
+  
+  button_x = random(400);
+  button_y = random(400);
+  button_text = 'Click dis button';
+
+  BAD_button = false;
+  text_color = color('black');
 }
 
 
@@ -89,6 +119,10 @@ function step(){
   //checks if you have moused over or pressed the button
   button.mouseOver(move_button);
   button.mousePressed(execute_button);
+  
+  if (BAD_button != false){
+    BAD_button.mousePressed(execute_BAD_button);
+  }
 }
 
 
@@ -107,5 +141,10 @@ function draw() {
   fill(color('black'));
 
   button.position(button_x, button_y);   //draws button
+  
+  if (BAD_button != false){
+    BAD_button.position(BAD_button_x, BAD_button_y);
+  }
+  
   step(); //calls custom step function
 }
