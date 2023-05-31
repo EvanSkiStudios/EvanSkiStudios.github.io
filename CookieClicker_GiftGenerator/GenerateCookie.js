@@ -1,12 +1,13 @@
 function GenerateGiftCode(){
-  var giftString = "MAIL|"+Date.now()+"|1000|34 3|Generated Cookies|"
+  var giftBoxDesign = "34 "+round(random(6,13));
+  
+  
+  var giftString = ("MAIL|" + Date.now() + "|1000|" + giftBoxDesign + "|Generated Cookies|");
   return btoa(giftString); 
 }
 
 function CheckGiftCode(str){
-    giftBoxDesigns=[[34,6],[16,9],[34,3],[34,4],[34,5],[34,7],[34,8],[34,9],[34,10],[34,11],[34,12]];
-  
-    var out={cookies:1,message:false,icon:giftBoxDesigns[0]};
+    var out={cookies:1,message:false,icon:[34,6]};
     str=atob(str);
     if (!str) return false;
     str=str.split('|');
