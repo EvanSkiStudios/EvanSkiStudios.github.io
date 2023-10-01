@@ -1,5 +1,5 @@
-function QuickTest(){
-	alert("Hello! I am an alert box!!");
+function CopyToClipboard(Text){
+	 navigator.clipboard.writeText(Text);
 }
 
-QuickTest();
+CopyToClipboard("This is a test String");
