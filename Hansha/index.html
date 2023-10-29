@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+				
+		 ,ggg,         gg                                                                
+		dP""Y8a        88   I8                         ,dPYb,                            
+		Yb, `88        88   I8                         IP'`Yb                            
+		 `"  88        8888888888                      I8  8I                            
+			 88        88   I8                         I8  8'                            
+			 88        88   I8     ,g,     gg      gg  I8 dP      gg     gg    ,ggggg,   
+			 88        88   I8    ,8'8,    I8      8I  I8dP   88ggI8     8I   dP"  "Y8ggg
+			 88        88  ,I8,  ,8'  Yb   I8,    ,8I  I8P    8I  I8,   ,8I  i8'    ,8I  
+			 Y8b,____,d88,,d88b,,8'_   8) ,d8b,  ,d8b,,d8b,  ,8I ,d8b, ,d8I ,d8,   ,d8'  
+			  "Y888888P"Y88P""Y8P' "YY8P8P8P'"Y88P"`Y88P'"Y88P"' P""Y88P"888P"Y8888P"    
+																	   ,d8I'             
+																	 ,dP'8I              
+																	,8"  8I              
+																	I8   8I              
+																	`8, ,8I              
+																	 `Y8P" 
+																	 
+		-->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +32,19 @@
     <meta property="og:title" content="Utsubyo, LLC">
     <meta property="og:description" content="Welcome to the Utsubyo family!. Explore our projects and creations.">
     <meta property="og:url" content="https://evanskistudios.github.io/Hansha/">
+	
+	<script>
+        function showContent(contentId) {
+            var contentDivs = ['home-content', 'about-content', 'events-content', 'contact-content'];
+            for (var i = 0; i < contentDivs.length; i++) {
+                if (contentDivs[i] === contentId + '-content') {
+                    document.getElementById(contentDivs[i]).style.display = 'block';
+                } else {
+                    document.getElementById(contentDivs[i]).style.display = 'none';
+                }
+            }
+        }
+    </script>
 	
     <style>
         body {
@@ -29,7 +63,7 @@
         }
 
         header a {
-            color: #da23ff;
+			color: #000;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
@@ -66,7 +100,7 @@
 
         footer {
             background: #fff;
-            color: ##da23ff;
+            color: #000;
             text-align: center;
             padding: 10px 0;
             position: fixed;
@@ -78,57 +112,101 @@
 
 <body>
     <header>
-        <div class="container">
+        <div class="container main">
             <h1>Utsubyo</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-					<li><a href="https://evanskistudios.github.io/Utsubyo">Employee-Server Proxy</a></li>
+                    <li><a href="#Home" onclick="showContent('home')">Home</a></li>
+                    <li><a href="#About" onclick="showContent('about')">About</a></li>
+                    <li><a href="#Events" onclick="showContent('events')">Events</a></li>
+                    <li><a href="#Contact" onclick="showContent('contact')">Contact</a></li>
+					<li><a href="https://evanskistudios.github.io/Utsubyo"><span style="color: #da23ff;">Employee-Server Proxy</span></a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <div class="container main">
-        <h2>Welcome to the Utsubyo family!</h2>
-        <p>
-		We're delighted to have you on board! As part of the <span style="color: #da23ff;">Utsubyo</span> family, you're not just an employee; you're a valued asset of our innovative workplace.
-		</p>
-		<p>
-		Here at <span style="color: #da23ff;">Utsubyo</span> we pride ourselves on our innovations on the future of science and software!
-		</p>
-		<br></br>
-		<p>
-		 As an valued part of our workplace you are able to grow and learn new skills and be on the cutting edge of discovery!
-		</p>
-		<ul>
-			<li>Work in the warehouse and cargo manifests, being the working mule of our day to day operations!</li>
-			<li>Oversee the function of one of our many nuclear reactors! The front line of the power for our lights!</li>
-		</ul>
-		<p>
-		We also have many selective programs to help expand your career or financial gain!
-		</p>
-		<ul>
-			<li>Experimental cloning initiative</li>
-			<li>Brain scans and experimental M.R.I procedures</li>
-			<li>Eternal Chipset pr̵͙̘̫̬̓ö̵͔̠̖͓͚́̕g̷̻̟̟̻̝̼͂̅͜r̸̢͙͖̞̙̒͗̑̏͊͜ą̶̢͎͉͎͚̮̝̊̑̊̂̾́̆̑̊͘͝ͅm̴̨̰̜̗̖̹̜̗̜͍̫̺̋́̈́̌̅͒̔̀̀̾̕ ̴͍̬̥̰̟̜͙̊a̴͔͖̓̋̎̈́͊͐͆̇̇̌ņ̶̧͕̜͚̭̝̯̠̞̭̣̞̗̮͐d̶̨̛̼͇̹̰̪̪̼̻̊̂͌̉̏́̚̚͜ ̸̧̼̭̘̝̰̠̬̠̝̩̲̬̀̑̔͛̃́̅͌̒͋̈́̔͘͘͝ͅe̵͚̣̔̐̀͐͊̑x̴̨̥̹̋̀̔̀͠p̸̨̬̪̲̙̞̞̱͕͔̜̹̞̊̈́̃̿́̇̋̽͜͜͝ȩ̷̦̞̻̜̼̜̠̦͖̱̻̗̮͍̃̉̾̃̈́͒͋̀͒̑͝͝͝r̶̖̘̼͕̭͔͉̣̠̬̺͔͎̓̇̈́̅̈́̾̉̊̉̄̀̕͠ͅi̴̪͖̮̫̮͚͓̙͇͓̰̣̺̺̤̓m̷̛͓̹̭͎͈̫̼͍̥͕̖̔͊̀̓͋̐̑̃̾̆̀ė̴̺ņ̵̖̭̲͈̱̀ṫ̷̞̗͖͎̙̝͈à̸̡̧̡͚̪͙͈͓̲̖̜͔͓̬͂̋́͌̋̽̕͘͘̕͠t̴̯͔͍͍̹̟̫͕͍͈̣͈͖̿i̴̫͔̤̠̟̗̽͌̇ͅơ̷̛̜͍̳̫̩̖̗͂̃̋̽̈́̍̑͐̓͂̆͜͝n̵̡̦̼̪̞͐̍͊͑̈̀̇̉͊̈́͌̇͘</li>
-			<li><s>P̷h̵e̵o̴n̷i̸x̸ ̷p̶r̵o̷j̸e̴c̷t̴</s></li>
-		</ul>
-		<br></br>
-		<p>
-		We hope that you will find working here less like work and more of an dream come true!
-		</p>
-		<br></br>
-		<br></br>
-		<p>
-		<span style="color: #da23ff;">Utsubyo</span>
-		</p>
-		<p><i>
-		Programming the Future!
-		</i></p>
+		<div id="home-content">
+			<h2>Welcome to the Utsubyo family!</h2>
+			<p>
+			We're delighted to have you on board! As part of the <span style="color: #da23ff;">Utsubyo</span> family, you're not just an employee; you're a valued asset of our innovative workplace.
+			</p>
+			<p>
+			Here at <span style="color: #da23ff;">Utsubyo</span> we pride ourselves on our innovations on the future of science and software!
+			</p>
+			<br></br>
+			<p>
+			 As an valued part of our workplace you are able to grow and learn new skills and be on the cutting edge of discovery!
+			</p>
+			<ul>
+				<li>Work in the warehouse and cargo manifests, being the working mule of our day to day operations!</li>
+				<li>Oversee the function of one of our many nuclear reactors! The front line of the power for our lights!</li>
+			</ul>
+			<p>
+			We also have many selective programs to help expand your career or financial gain!
+			</p>
+			<ul>
+				<li>Experimental cloning initiative</li>
+				<li>Brain scans and experimental M.R.I procedures</li>
+				<li>Eternal Chipset <span style="color: #da23ff;">pr̵͙̘̫̬̓ö̵͔̠̖͓͚́̕g̷̻̟̟̻̝̼͂̅͜r̸̢͙͖̞̙̒͗̑̏͊͜ą̶̢͎͉͎͚̮̝̊̑̊̂̾́̆̑̊͘͝ͅm̴̨̰̜̗̖̹̜̗̜͍̫̺̋́̈́̌̅͒̔̀̀̾̕ ̴͍̬̥̰̟̜͙̊a̴͔͖̓̋̎̈́͊͐͆̇̇̌ņ̶̧͕̜͚̭̝̯̠̞̭̣̞̗̮͐d̶̨̛̼͇̹̰̪̪̼̻̊̂͌̉̏́̚̚͜ ̸̧̼̭̘̝̰̠̬̠̝̩̲̬̀̑̔͛̃́̅͌̒͋̈́̔͘͘͝ͅe̵͚̣̔̐̀͐͊̑x̴̨̥̹̋̀̔̀͠p̸̨̬̪̲̙̞̞̱͕͔̜̹̞̊̈́̃̿́̇̋̽͜͜͝ȩ̷̦̞̻̜̼̜̠̦͖̱̻̗̮͍̃̉̾̃̈́͒͋̀͒̑͝͝͝r̶̖̘̼͕̭͔͉̣̠̬̺͔͎̓̇̈́̅̈́̾̉̊̉̄̀̕͠ͅi̴̪͖̮̫̮͚͓̙͇͓̰̣̺̺̤̓m̷̛͓̹̭͎͈̫̼͍̥͕̖̔͊̀̓͋̐̑̃̾̆̀ė̴̺ņ̵̖̭̲͈̱̀ṫ̷̞̗͖͎̙̝͈à̸̡̧̡͚̪͙͈͓̲̖̜͔͓̬͂̋́͌̋̽̕͘͘̕͠t̴̯͔͍͍̹̟̫͕͍͈̣͈͖̿i̴̫͔̤̠̟̗̽͌̇ͅơ̷̛̜͍̳̫̩̖̗͂̃̋̽̈́̍̑͐̓͂̆͜͝n̵̡̦̼̪̞͐̍͊͑̈̀̇̉͊̈́͌̇͘</span></li>
+				<span style="color: #da23ff;"><li><s>P̷h̵e̵o̴n̷i̸x̸ ̷p̶r̵o̷j̸e̴c̷t̴</s></li></span>
+			</ul>
+			<br></br>
+			<p>
+			We hope that you will find working here less like work and more of an dream come true!
+			</p>
+			<br></br>
+			<br></br>
+			<p>
+			<span style="color: #da23ff;">Utsubyo</span>
+			</p>
+			<p><i>
+			Programming the Future!
+			</i></p>
+		</div>
+	
+	    <div id="about-content" style="display: none;">
+            <h2>About Us</h2>
+            <p>
+			<span style="color: #da23ff;">Utsubyo</span> is the parent company of Gauss Magnetics Software
+			<br></br>
+			<span style="color: #da23ff;">Utsubyo</span> CEO: □□□□□□<br></br>
+			System Admin: Steven Iris<br></br>
+			Head of Marketing: Care Fowler<br></br>
+			<br></br>
+			Gauss Magnetics Software
+			<br></br><br></br>
+			<span style="color: #da23ff;">
+			□̷̡̡̛͉̯͕͇̣̄̅̊͗̒ͅ□̷̛͇͈̳̻̞̙̖̮̺͔̩̣̼͙͓̞̬͐̐̾͗̄̈́͠͠͠□̴̡̞̱͙͈̞̻̖̟̭̃̆̍͘͝□̶̡̨̧̢̢͓̮̹̗̗̰͉̉͋͑͋͋̌̏̉̃̆̏̅͘□̷̞̥͖̃͌̑̀͗͆̑̉̇̈́͂̀̈́͌̄͘͠͠□̵̡͖̳̞͚̺͓̟̫͕͕̿̍́͐͛̈́̑͗͆̊̍̑̊́̊̓̚͘͝ͅ□̷̧͇̭̭̪̣͓͍̏̀̈́̐͘͝͝ͅ□̵̹̎̇̀͛̅̽͂̏̀͛̌̄́͛̈́̃̀□̷̧͉͈̰̼̗̩̠̲̻̼̳̠̔̈́́̊͊̏͗̓̒̑̓̃̒̄͆̿̏̆̕͝□̴̹̦͔̪͓͒̐̆́̋̋͘□̷͓͓̃́͝͠□̶̢͓͙̩̭̥̅̃͒̋͜□̷̧̨̠̹͖̩̻̰̤̱̪̰̥͎̺͓̤̣̟̓͒̏̈̍͐̾̇̐̀̔̑̈̚͘͜□̷̢̡̛̫̼̜̫̺̼̪̃̔̀͛̀̎̉̏̃͗̕͜͝□̸̳̬̽̌̈́̚□̸̧̲̗̥̬̣͕̬̞̹̻̞͙̭̲̞̘͓̌̂̓̂̊́͗̈̔͑͗̀̀̊̚͠ͅͅ
+			</span>
+			<br></br><br></br>
+			<b><span style="color: #da23ff;">Chief Operations Manager: Allen Morris</span></b>
+			
+            </p>
+        </div>
+
+        <div id="events-content" style="display: none;">
+            <h2>Current Events:</h2>
+			<h3>"Empowering Future Leaders: Celebrating Take Your Daughter to Work Day Success!"</h3>
+			<p>
+			In a vibrant showcase of mentorship and talent, employees and their daughters came together for an inspiring Take Your Daughter to Work Day event at our company.<br>
+			Young minds were ignited with curiosity as they explored various facets of the professional world, encouraging dreams to soar and horizons to expand.<br>
+			<br><br>
+			Highlighting the day was an electrifying Science Competition, where brilliant young minds competed with innovative ideas.<br>
+			Amongst the talented participants, <b><span style="color: #da23ff;">Hope Morris</span></b> emerged victorious, clinching the first prize with her <span style="color: #da23ff;">g̸͎͚͔͍̖̠͈̓̿͋̎͝r̴͖̜̝̻̤͎̘̲͎͍͛̆̑͒̂̃̒̑̐̌͋̈́̚͘ͅỏ̸̡̮̫̰̈̈́̿͐̑̉̆u̴̬̽͆͆̃̏͘ń̵̢̗͎̫͈̪͈̇̿̓̊̓̓̒̀̆͐̃̕͜d̶͖̂̇́͗̅̊̂̋̇̀b̶̫̟̙͈̬̯͓̙̒r̴̛̻̬̥̺̠͓̺̻̯̠͖̻͉͓̆͛͐̿͗͗è̶̡̨̨̘͉̜̫̮͚̻̺̯̘͒͌̈͒̑̚͘ą̵̡̗̣̺͔̙̩͚̰͚̻͓̊͋̍̅͗̊̅̃̚ͅk̴̖̰͗ǐ̷͔̍͆͐̀̓́͠n̷̯̟̣̼̘͈̥̭̬̱͚̜͋̇͗̀̈̉̋̍͆̾̾̓͘g̷̢̡̧̨̛̮͙͕̞̼̘̮͙̦̦̔̍̓͋́̎̐̓̆̓̚͘͠ ̷̝̜̖͇͉̦̩̻̼̝̋͌͑̇̍"̸̡̛͎̟͇̹̹̔̍̆̊́̏̊͊́͗̚̕c̴̦̰̬̜͇̼͚͎͋̈͂́h̴̹͈̱̙̺̖̰̖̭̩͓͔͇͘͝i̶̢̡͎̝̳͓̰̘͔͓̽̂̎̀̚p̴͙͓̲̻͈̺̖̫̮͌̇̂́̈̈́̾͊̊̎͛̈́̕͘͠s̴̛̠͜ȩ̸̧͓̹̥̹̙̳̋̌͐̈́̀͛͌͠ț̸̡̞͓̞̊̈́̒̔̾̄̓̄̋̄̾͌̒"̵̱͕̫̟̿̈́̄̾̎̄̃̿͛͐̇͝ ̸͇͕̥̝̄͒̏̔̂́͌̐͂̏͠͝m̴̝͈̲̘̮͖̃͆ǫ̴̛̊͒̂ḋ̸̯͚̠̟͠ȩ̵̰̩̹̯͎̈́́̈́l̷̼̩̗̺͙̽͗̇̆̄͐͊ͅ ̴̱̱̕p̷̡̝̮̖͇͔͈̤͖̰͙̞͍̈́̐͊̈͑̋̈́̃̈̅̿͛̅͜͠r̷͖̠̪͕̠̾̄ḛ̴̪̘́̈́͛̄̈͋͜͝ș̵̨̺̫̣̠͎͈͖̽͗̈̾̾̇̔́͛͊͝ͅe̷̛͕̠̠̭̓͋̀̔͆͑͂͒̂̒̉̕͘ṋ̷̈͛͠ţ̸̧̡̛̜̦̙̺̹̱͓̬̇̔̌̑̆͘͘͝ả̴̧̪̥̲͕̗̜̦̠͔̼̞̘̇̆t̷͙͙̀͑̌̒̉̃̑̈́̆͂͂̀̕i̷̛̬̦͔̣̣̪o̴͙̺̫̊̋̃̂̌͗̿͗̿͌͆̐̐̾̀ņ̷̲̑̍̔͒̐̑͠.</span><br>
+			Her creativity and determination shone brightly, inspiring us all and reinforcing our commitment to nurturing the next generation of trailblazers.<br>
+			Congratulations, <b><span style="color: #da23ff;">Hope</span></b>, on your well-deserved success!
+            </p>
+        </div>
+
+        <div id="contact-content" style="display: none;">
+            <h2>Contact Us</h2>
+            <p>
+			This is a long thing of text to test if stuff renders correctly
+            </p>
+        </div>
+		
     </div>
 
     <footer>
