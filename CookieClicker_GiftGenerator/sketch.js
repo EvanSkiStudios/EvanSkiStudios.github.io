@@ -3,10 +3,12 @@ let cookie_ammount = 5;
 
 let img;
 let img_background;
+let music;
 
 function preload() {
   img = loadImage('assets/cookie.png');
   img_background = loadImage('assets/background.png');
+  music = createAudio('assets/Impact Lento.mp3');
 }
 
 function init_start_button(){
@@ -22,6 +24,8 @@ function CreateGiftCode(){
   var cookies = GenerateGiftCode();
   inp = createInput(cookies);
   cookiekey = inp.value();
+  
+  music.play();
 }
 
 function update_elements(){
@@ -56,6 +60,7 @@ function update_elements(){
 }  
 
 function setup() {
+  angleMode(DEGREES);
   
   for (var i = 0; i < cookie_ammount; ++i){
     cookies[i] = new Cookie(img);
@@ -73,11 +78,23 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+function kevinCredits(){
+   let credit = ("\"Impact Lento\" Kevin MacLeod (incompetech.com)\n"+"Licensed under Creative Commons: By Attribution 4.0 License\n"+"http://creativecommons.org/licenses/by/4.0/");
+  
+  textSize(16);
+  fill(255);
+  text(credit, (width/2) - textWidth(credit)/6, windowHeight - textSize()*4);
+}
+
+
 function draw() {
   background(255, 255, 255);
   
    if (inp != undefined){
+     
      image(img_background, 0, 0, windowWidth, windowHeight);
+     
+     kevinCredits();
      
      //cookies
      for (let cookie of cookies){
