@@ -24,9 +24,9 @@ function Clock(){
   return(dateString);
 }
 
-
-
 function setup() {
+  Dosis = loadFont('fonts/Dosis-SemiBold.ttf');
+  
   createCanvas(windowWidth, windowHeight);
   
   fourmLink = createA('https://forum.gamemaker.io/index.php?forums/gmc-jam.9/', 'Forum Link');
@@ -51,7 +51,7 @@ function draw() {
   fourmLink.position(halfWidth - textWidth('Forum Link')/2, 120);
   
   textAlign(LEFT);
-  textFont('Dosis');
+  textFont(Dosis);
   fill('#88d658');
   textSize(48);
 
