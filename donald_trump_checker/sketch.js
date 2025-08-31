@@ -16,6 +16,13 @@ function preload() {
   music = createAudio('assets/Who Likes to Party.mp3');
 }
 
+async function check_trump(){
+  trump_status = await query_wiki();
+  get_trump_status(); 
+  console.log('checked Wikipedia')
+}
+
+
 function party(){
   trump_status = 'false';
   get_trump_status();
@@ -24,6 +31,7 @@ function party(){
   button = undefined;
   
   music.play();
+  clearInterval(intervalID);
 }
 
 function init_start_button(){
@@ -40,6 +48,9 @@ function windowResized() {
 }
 
 async function setup() {
+   // Call myFunction every 1 seconds
+  intervalID = setInterval(check_trump, 1000);
+  
   colorMode(HSB); // use Hue, Saturation, Brightness instead of RGB
   
     // initialize confetti
@@ -61,6 +72,12 @@ async function setup() {
 
 function draw(){
   background(0);
+  
+  if (trump_status == 'true'){
+    img = alive_img;
+    music.stop();
+  }
+  
   
   if (trump_status == 'false'){
     img = dead_img;
