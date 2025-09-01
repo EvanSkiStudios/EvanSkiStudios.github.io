@@ -24,7 +24,7 @@ async function check_trump(){
 
 
 function party(){
-  trump_status = 'false';
+  trump_status = false;
   get_trump_status();
   
   button.remove();
@@ -65,7 +65,7 @@ async function setup() {
   trump_status = await query_wiki();
   get_trump_status();
   
-  if (trump_status == 'true'){
+  if (trump_status == true){
     init_start_button()
   }
 }
@@ -73,13 +73,13 @@ async function setup() {
 function draw(){
   background(0);
   
-  if (trump_status == 'true'){
+  if (trump_status == true){
     img = alive_img;
     music.stop();
   }
   
   
-  if (trump_status == 'false'){
+  if (trump_status == false){
     img = dead_img;
     
     let hue = frameCount * 1 % 360; // cycles hue from 0 → 359
@@ -120,7 +120,7 @@ function draw(){
         25
       );  
   
-  if (trump_status == 'false'){
+  if (trump_status == false){
     updateConfetti();
     drawConfetti();
   }
