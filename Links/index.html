@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            background: #303030;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,24 +16,36 @@
         }
 
         .container {
-            background: #ffffff;
+            background: #202020;
             padding: 24px;
             width: 320px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
+		.container h1 {
+			margin-bottom: 20px;
+			font-size: 20px;
+			text-decoration: underline;
+			text-align: center;
+			color: #e2e2e2;
+		}
+		
+		.profile-image {
+			width: 211px;
+			height: 240px;
+			border-radius: 25%;
+			object-fit: cover;
+			margin: 0 auto 16px auto;
+			display: block;
+			box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5)
+		}
 
         .social-link {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: #000000;
+            color: #ffffff;
             padding: 10px;
             border-radius: 6px;
             transition: background 0.2s;
@@ -41,13 +53,15 @@
         }
 
         .social-link:hover {
-            background: #eeeeee;
+            background: #303030;
+			box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5)
         }
 
         .social-link img {
             width: 32px;
             height: 32px;
             margin-right: 12px;
+			border-radius: 6px;
         }
 
         .username {
@@ -57,7 +71,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Evanski Social Links</h1>
+		<img class="profile-image" src="images/profile.png" alt="Profile Image">
+        <h1>Evanski's Social Links</h1>
 		
 		
 		 <a class="social-link" href="https://github.com/EvanSkiStudios" target="_blank">
