@@ -13,5 +13,6 @@ function setup() {
 }
 
 function draw() {
+  background(color(38,38,38));
   display_dots();
 }
