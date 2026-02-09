@@ -1,5 +1,7 @@
 [Github Page](https://evanskistudios.github.io/)
 
+[Soical Links](https://evanskistudios.github.io/Links/)
+
 ## My wacky world of HTML things
 https://evanskistudios.github.io/Links/
 
