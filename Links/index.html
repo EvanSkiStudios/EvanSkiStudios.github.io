@@ -1,121 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Social Links</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #303030;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .container {
-            background: #202020;
-            padding: 24px;
-            width: 320px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+  <title>My Social Links</title>
 
-		.container h1 {
-			margin-bottom: 20px;
-			font-size: 20px;
-			text-decoration: underline;
-			text-align: center;
-			color: #e2e2e2;
-		}
-		
-		.profile-image {
-			width: 158px;
-			height: 180px;
-			border-radius: 25%;
-			object-fit: cover;
-			margin: 0 auto 16px auto;
-			display: block;
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3)
-		}
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 6px;
-            transition: background 0.2s;
-            margin-bottom: 10px;
-        }
-
-        .social-link:hover {
-            background: #303030;
-			box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5)
-        }
-
-        .social-link img {
-            width: 32px;
-            height: 32px;
-            margin-right: 12px;
-			border-radius: 6px;
-        }
-
-        .username {
-            font-size: 14px;
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <main>
+    
     <div class="container">
-		<img class="profile-image" src="images/profile.png" alt="Profile Image">
-        <h1>Evanski's Social Links</h1>
-		
-		
-		 <a class="social-link" href="https://github.com/EvanSkiStudios" target="_blank">
-            <img src="images/github.png" alt="GitHub Logo">
-            <span class="username">EvanSkiStudios</span>
-        </a>
+      <img class="profile-image" src="images/profile.png" alt="Profile Image">
+      <h1>Evanski's Social Links</h1>
 
+      
+      <a class="social-link" href="https://github.com/EvanSkiStudios" target="_blank">
+        <img src="images/github.png" alt="GitHub Logo">
+        <span class="username">EvanSkiStudios</span>
+      </a>
 
-		<a class="social-link" href="https://www.youtube.com/@evanskistudios" target="_blank">
-            <img src="images/youtube.png" alt="Youtube Logo">
-            <span class="username">EvanskiStudios</span>
-        </a>
-		
-		
-		<a class="social-link" href="https://www.twitch.tv/evanskistudios" target="_blank">
-            <img src="images/twitch.png" alt="Youtube Logo">
-            <span class="username">EvanskiStudios</span>
-        </a>
+      <a class="social-link" href="https://www.youtube.com/@evanskistudios" target="_blank">
+        <img src="images/youtube.png" alt="YouTube Logo">
+        <span class="username">EvanskiStudios</span>
+      </a>
 
-		
-		<a class="social-link" href="https://evaccoon.itch.io/" target="_blank">
-            <img src="images/itchio.png" alt="Itch.io Logo">
-            <span class="username">Evanski</span>
-        </a>
-		
+      <a class="social-link" href="https://www.twitch.tv/evanskistudios" target="_blank">
+        <img src="images/twitch.png" alt="Twitch Logo">
+        <span class="username">EvanskiStudios</span>
+      </a>
 
-        <a class="social-link" href="https://bsky.app/profile/evanski.bsky.social" target="_blank">
-            <img src="images/bluesky.png" alt="Bluesky Logo">
-            <span class="username">Evanski</span>
-        </a>
+      <a class="social-link" href="https://evaccoon.itch.io/" target="_blank">
+        <img src="images/itchio.png" alt="Itch.io Logo">
+        <span class="username">Evanski</span>
+      </a>
 
+      <a class="social-link" href="https://bsky.app/profile/evanski.bsky.social" target="_blank">
+        <img src="images/bluesky.png" alt="Bluesky Logo">
+        <span class="username">Evanski</span>
+      </a>
 
-        <a class="social-link" href="https://forum.gamemaker.io/index.php?members/evanski.28930/" target="_blank">
-            <img src="images/gamemaker.png" alt="GameMaker Logo">
-            <span class="username">Evanski</span>
-        </a>
-		
-		
-		<a class="social-link" href="https://www.instagram.com/evanskistudios/" target="_blank">
-            <img src="images/instagram.png" alt="instagram Logo">
-            <span class="username">EvanskiStudios</span>
-        </a>
-		
+      <a class="social-link" href="https://forum.gamemaker.io/index.php?members/evanski.28930/" target="_blank">
+        <img src="images/gamemaker.png" alt="GameMaker Logo">
+        <span class="username">Evanski</span>
+      </a>
+
+      <a class="social-link" href="https://www.instagram.com/evanskistudios/" target="_blank">
+        <img src="images/instagram.png" alt="Instagram Logo">
+        <span class="username">EvanskiStudios</span>
+      </a>
     </div>
+    
+  </main>
+
+  <script src="sketch.js"></script>
+  <script src="background_effect.js"></script>
 </body>
 </html>
