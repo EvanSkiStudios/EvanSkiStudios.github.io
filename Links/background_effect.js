@@ -68,6 +68,19 @@ class background_dot{
       line(this.x, this.y, targetX, targetY);
     }
   }
+  
+  
+  drawDynamicLines() {
+  let connection_color = color(50, 50, 50);
+  stroke(connection_color);
+  strokeWeight(1);
+
+  let closest = getClosestDots(this, 3);
+  for (let other of closest) {
+    line(this.x, this.y, other.x, other.y);
+  }
+}
+
 
    update_position() {
   let dx = this.destX - this.x;
@@ -90,7 +103,7 @@ class background_dot{
   pick_new_destination() {
     this.destX = random(dot_size, windowWidth - dot_size);
     this.destY = random(dot_size, windowHeight - dot_size);
-    this.speed = random(0.5, 2.5);
+    this.speed = random(0.2, 1.5);
   }
   
 }
@@ -149,6 +162,19 @@ function allLinesFinished() {
 }
 
 
+function getClosestDots(dot, count = 4) {
+  return background_dots
+    .filter(d => d !== dot)
+    .map(d => ({
+      dot: d,
+      distSq: (dot.x - d.x) ** 2 + (dot.y - d.y) ** 2
+    }))
+    .sort((a, b) => a.distSq - b.distSq)
+    .slice(0, count)
+    .map(e => e.dot);
+}
+
+
 function display_dots() {
   let t = frameCount;
 
@@ -161,14 +187,18 @@ function display_dots() {
     movement_started = true;
   }
 
-  // 1. Draw all lines first
+  // --- LINES ---
   for (let dot of background_dots) {
-    if (cascade_finished) {
-      dot.drawLines();
+    if (!movement_started && cascade_finished) {
+      dot.drawLines(); // growing lines
+    }
+
+    if (movement_started) {
+      dot.drawDynamicLines(); // instant, closest-4
     }
   }
 
-  // 2. Draw all circles on top
+  // --- CIRCLES + MOVEMENT ---
   for (let dot of background_dots) {
     dot.displayCircle(t);
     if (movement_started) {
