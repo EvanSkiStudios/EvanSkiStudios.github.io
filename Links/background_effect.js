@@ -1,4 +1,5 @@
 let background_dots = [];
+let dynamicLineProgress = new Map();
 
 let dot_color;
 let max_dots_width;
@@ -32,6 +33,7 @@ class background_dot{
     
     this.neighbors = [];
     this.lineProgress = new Map(); // tracks 0→1 progress for each neighbor
+    this.dynamicLineProgress = new Map();
   }
   
    displayCircle(frame) {
@@ -71,34 +73,51 @@ class background_dot{
   
   
   drawDynamicLines() {
-  let connection_color = color(50, 50, 50);
-  stroke(connection_color);
-  strokeWeight(1);
+    const connection_color = color(50, 50, 50);
+    stroke(connection_color);
+    strokeWeight(1);
 
-  let closest = getClosestDots(this, 3);
-  for (let other of closest) {
-    line(this.x, this.y, other.x, other.y);
+    let closest = getClosestDots(this, 3);
+
+    for (let other of closest) {
+      let key = other;
+
+      let dx = other.x - this.x;
+      let dy = other.y - this.y;
+      let dist = sqrt(dx * dx + dy * dy);
+
+      // normalize speed based on distance
+      // farther = faster draw
+      let speed = constrain(dist / 300, 0.02, 0.15);
+
+      let progress = this.dynamicLineProgress.get(key) || 0;
+      progress = min(progress + speed, 1);
+      this.dynamicLineProgress.set(key, progress);
+
+      let x2 = lerp(this.x, other.x, progress);
+      let y2 = lerp(this.y, other.y, progress);
+
+      line(this.x, this.y, x2, y2);
+    }
   }
-}
-
 
    update_position() {
-  let dx = this.destX - this.x;
-  let dy = this.destY - this.y;
-  let dist = sqrt(dx * dx + dy * dy);
+    let dx = this.destX - this.x;
+    let dy = this.destY - this.y;
+    let dist = sqrt(dx * dx + dy * dy);
 
-  if (dist <= this.speed) {
-    // close enough, snap to destination
-    this.x = this.destX;
-    this.y = this.destY;
-    this.pick_new_destination();
-    return;
+    if (dist <= this.speed) {
+      // close enough, snap to destination
+      this.x = this.destX;
+      this.y = this.destY;
+      this.pick_new_destination();
+      return;
+    }
+
+    // move toward destination
+    this.x += (dx / dist) * this.speed;
+    this.y += (dy / dist) * this.speed;
   }
-
-  // move toward destination
-  this.x += (dx / dist) * this.speed;
-  this.y += (dy / dist) * this.speed;
-}
   
   pick_new_destination() {
     this.destX = random(dot_size, windowWidth - dot_size);
@@ -175,32 +194,64 @@ function getClosestDots(dot, count = 4) {
 }
 
 
+function lineKey(a, b) {
+  return a < b ? `${a}_${b}` : `${b}_${a}`;
+}
+
+
+function cleanupDynamicLines(activePairs) {
+  for (let key of dynamicLineProgress.keys()) {
+    if (!activePairs.has(key)) {
+      dynamicLineProgress.delete(key);
+    }
+  }
+}
+
 function display_dots() {
   let t = frameCount;
 
+  // --- CASCADE FINISH ---
   if (!cascade_finished && t >= cascade_duration + fade_duration) {
     cascade_finished = true;
     assign_neighbors();
   }
 
+  // --- START MOVEMENT AFTER INITIAL LINES FINISH ---
   if (cascade_finished && !movement_started && allLinesFinished()) {
     movement_started = true;
   }
 
-  // --- LINES ---
-  for (let dot of background_dots) {
-    if (!movement_started && cascade_finished) {
-      dot.drawLines(); // growing lines
+  // --- LINE DRAWING ---
+  if (!movement_started && cascade_finished) {
+    // growing static neighbor lines
+    for (let dot of background_dots) {
+      dot.drawLines();
+    }
+  }
+
+  if (movement_started) {
+    // animated dynamic closest-neighbor lines
+    let activePairs = new Set();
+
+    for (let dot of background_dots) {
+      let i = background_dots.indexOf(dot);
+      let closest = getClosestDots(dot, 3);
+
+      for (let other of closest) {
+        let j = background_dots.indexOf(other);
+        activePairs.add(lineKey(i, j));
+      }
+
+      dot.drawDynamicLines();
     }
 
-    if (movement_started) {
-      dot.drawDynamicLines(); // instant, closest-4
-    }
+    cleanupDynamicLines(activePairs);
   }
 
   // --- CIRCLES + MOVEMENT ---
   for (let dot of background_dots) {
     dot.displayCircle(t);
+
     if (movement_started) {
       dot.update_position();
     }
