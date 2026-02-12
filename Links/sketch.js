@@ -3,7 +3,7 @@ function setup() {
   c.position(0, 0);
   c.style('z-index', '-1');
   
-  dot_color = color(70, 70, 70);
+  dot_color = color(60, 60, 60);
 
   max_dots_width = Math.ceil(windowWidth / dot_buffer);
   max_dots_height = Math.ceil(windowHeight / dot_buffer);
